@@ -1,0 +1,7 @@
+<window name="Sys_Setup_Screen" style:normal:bg_image="setup_screen">
+    <label name="label1_copy2" x="82" y="23" w="555" h="50" text="TMR 06 - Auto Stop Set Up" style:normal:text_align_v="middle" enable="false" visible="false" style:normal:font_name="insight_sans_ssi" style:normal:font_size="53"/>
+    <button name="button1" x="732" y="-1" w="65" h="44" target_name="home_page" enable_click="true" feedback="true" function="open_window" style:normal:border_color="#00000000" style:normal:bg_color="#00000000"/>
+    <button name="setoffset" x="30" y="313" w="232" h="83" target_name="Offset_Setting" enable_click="true" feedback="true" style:normal:text_color="#00000000" style:normal:border_color="#00000000" style:normal:bg_color="#00000000" function="open_window"/>
+    <button name="setcalibrate" x="288" y="311" w="228" h="86" target_name="Calibration_Screen" enable_click="true" feedback="true" function="open_window" style:normal:border_color="#00000000" style:normal:bg_color="#00000000"/>
+    <button name="setreturn" x="541" y="313" w="230" h="83" target_name="home_page" enable_click="true" feedback="true" style:normal:border_color="#00000000" style:normal:bg_color="#00000000" function="open_window"/>
+</window>

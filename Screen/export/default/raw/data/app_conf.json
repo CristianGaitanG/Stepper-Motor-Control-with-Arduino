@@ -1,0 +1,5 @@
+{
+    "baud_rate" : 115200,
+    "brightness" : 100,
+    "lcd_rotation" : 0
+}

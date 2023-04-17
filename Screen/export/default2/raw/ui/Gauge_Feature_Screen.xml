@@ -1,0 +1,8 @@
+<window name="Gauge_Feature_Screen" style:normal:bg_image="gaugefeature">
+    <label name="label14" x="65" y="302" w="650" h="51" text="TAMA & Services  TMR06 Auto Position Length Stop" style:normal:text_align_v="middle" style:normal:text_color="#ffffff" style:normal:font_size="40" visible="false"/>
+    <button name="button6" x="720" y="2" w="74" h="36" target_name="home_page" enable_click="true" feedback="true" style:normal:border="none" style:normal:bg_color="#f4f4f400" function="open_window"/>
+    <button name="button13" x="80" y="194" w="240" h="94" target_name="Manual_Jog_Screen" enable_click="true" feedback="true" style:normal:border="none" style:normal:bg_color="#f4f4f400" function="open_window"/>
+    <button name="button14" x="74" y="329" w="245" h="84" target_name="Auto_Position_Page" enable_click="true" feedback="true" style:normal:bg_color="#f4f4f400" style:normal:border="none" function="open_window"/>
+    <button name="button15" x="475" y="197" w="247" h="90" target_name="dialog4" enable_click="true" feedback="true" style:normal:bg_color="#f4f4f400" style:normal:border="none" function="open_window"/>
+    <button name="button16" x="477" y="328" w="247" h="87" target_name="dialog4" enable_click="true" feedback="true" style:normal:bg_color="#f4f4f400" style:normal:border="none" function="open_window"/>
+</window>

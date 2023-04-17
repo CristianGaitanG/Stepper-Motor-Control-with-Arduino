@@ -1,0 +1,5 @@
+<window name="Calibration_Screen" style:normal:bg_image="calibration_screen">
+    <label name="offset" x="307" y="330" w="143" h="50" style:normal:text_align_v="middle" visible="false" enable="false" style:normal:font_name="insight_sans_ssi" style:normal:font_size="22"/>
+    <button name="startcal" x="285" y="256" w="216" h="68" target_name="dialog3" enable_click="true" feedback="true" style:normal:bg_color="#f4f4f400" style:normal:border="none" function="open_window"/>
+    <button name="returncal" x="563" y="408" w="213" h="68" target_name="home_page" enable_click="true" feedback="true" style:normal:bg_color="#f4f4f400" style:normal:border="none" function="open_window"/>
+</window>

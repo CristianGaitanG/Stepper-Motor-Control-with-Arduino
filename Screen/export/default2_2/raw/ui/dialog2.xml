@@ -1,0 +1,4 @@
+<dialog name="dialog2" x="c" y="m" w="50%" h="50%" highlight="default(alpha=100)" style:normal:bg_image="calibrationfailed">
+    <view name="view3" x="0" y="0" w="100%" h="27" style:normal:bg_color="#00000000" style:normal:round_radius="0"/>
+    <button name="button2" x="89" y="157" w="224" h="62" enable_click="true" feedback="true" style:normal:border_color="#00000000" style:normal:bg_color="#00000000" function="close_window"/>
+</dialog>

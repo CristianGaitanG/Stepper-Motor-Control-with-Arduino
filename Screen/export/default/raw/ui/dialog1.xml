@@ -1,0 +1,4 @@
+<dialog name="dialog1" x="c" y="m" w="50%" h="50%" highlight="default(alpha=100)" style:normal:bg_image="calibrationaccept">
+    <view name="view1" x="1" y="3" w="100%" h="27" style:normal:bg_color="#CCCCCC" style:normal:round_radius="0" enable="false" visible="false"/>
+    <button name="button4" x="98" y="128" w="200" h="69" target_name="Gauge_Feature_Screen" enable_click="true" feedback="true" style:normal:bg_color="#f4f4f400" style:normal:border="none" function="open_window"/>
+</dialog>

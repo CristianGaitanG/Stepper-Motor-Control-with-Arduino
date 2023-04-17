@@ -1,0 +1,17 @@
+<window name="Auto_Position_Page" style:normal:bg_image="autopos_screen">
+    <button name="button7" x="17" y="393" w="221" h="84" target_name="Gauge_Feature_Screen" enable_click="true" feedback="true" style:normal:bg_color="#00000000" style:normal:border_color="#00000000" function="open_window"/>
+    <button name="estopAuto" x="296" y="338" w="153" h="137" enable_click="true" feedback="true" style:normal:bg_color="#00000000" style:normal:border_color="#00000000"/>
+    <label name="actualPosAuto" x="239" y="161" w="160" h="28" text="0000.0" style:normal:font_name="insight_sans_ssi"/>
+    <label name="desirePosAuto" x="238" y="206" w="160" h="28" text="0000.0" style:normal:font_name="insight_sans_ssi"/>
+    <button name="btn1" x="498" y="155" w="85" h="69" enable_click="true" feedback="true" style:normal:bg_color="#00000000" style:normal:border_color="#00000000" function="none"/>
+    <button name="btn4" x="498" y="239" w="85" h="69" enable_click="true" feedback="true" style:normal:bg_color="#00000000" style:normal:border_color="#00000000"/>
+    <button name="btn3" x="689" y="156" w="85" h="69" enable_click="true" feedback="true" style:normal:bg_color="#00000000" style:normal:border_color="#00000000"/>
+    <button name="btn2" x="593" y="155" w="85" h="69" enable_click="true" feedback="true" style:normal:bg_color="#00000000" style:normal:border_color="#00000000"/>
+    <button name="btn6" x="689" y="241" w="86" h="69" enable_click="true" feedback="true" style:normal:bg_color="#00000000" style:normal:border_color="#00000000"/>
+    <button name="btn5" x="592" y="239" w="86" h="69" enable_click="true" feedback="true" style:normal:bg_color="#00000000" style:normal:border_color="#00000000"/>
+    <button name="btn9" x="690" y="331" w="86" h="69" enable_click="true" feedback="true" style:normal:bg_color="#00000000" style:normal:border_color="#00000000"/>
+    <button name="btn8" x="597" y="331" w="86" h="69" enable_click="true" feedback="true" style:normal:bg_color="#00000000" style:normal:border_color="#00000000"/>
+    <button name="btndot" x="650" y="416" w="86" h="60" enable_click="true" feedback="true" style:normal:bg_color="#00000000" style:normal:border_color="#00000000"/>
+    <button name="btn7" x="497" y="331" w="86" h="70" enable_click="true" feedback="true" style:normal:bg_color="#00000000" style:normal:border_color="#00000000"/>
+    <button name="btn0" x="552" y="419" w="86" h="60" enable_click="true" feedback="true" style:normal:bg_color="#00000000" style:normal:border_color="#00000000"/>
+</window>

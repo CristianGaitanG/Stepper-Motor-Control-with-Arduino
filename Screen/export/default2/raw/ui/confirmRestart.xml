@@ -1,0 +1,4 @@
+<popup name="confirmRestart" x="c" y="m" w="50%" h="50%" style:normal:bg_image="confirmreset" visible="true" enable="true">
+    <button name="conreset" x="106" y="152" w="180" h="64" text="Confrm" target_name="home_page" enable_click="true" feedback="true" style:normal:font_name="insight_sans_ssi" style:normal:font_size="26" function="open_window" enable="true" visible="false"/>
+    <button name="cancelcon" x="341" y="-1" w="56" h="36" target_name="home_page" enable_click="true" feedback="true" style:normal:bg_color="#f4f4f400" function="open_window" visible="false" enable="true"/>
+</popup>

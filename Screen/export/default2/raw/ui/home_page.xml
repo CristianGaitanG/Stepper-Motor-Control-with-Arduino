@@ -1,0 +1,7 @@
+<window name="home_page" style:normal:bg_image="home_screen">
+    <label name="label1" x="80" y="82" w="650" h="65" text="TMR06 - Auto Position Length Stop" style:normal:text_align_v="middle" style:normal:text_color="#000000" style:normal:font_size="45" style:normal:font_name="insight_sans_ssi" style:normal:border="none" style:normal:bg_color="#f8f8f800" visible="false" enable="false"/>
+    <button name="calibrate" x="44" y="279" w="212" h="80" target_name="Calibration_Screen" enable_click="true" feedback="true" style:normal:text_color="#44444400" style:normal:bg_color="#f4f4f400" style:normal:border="none" function="open_window"/>
+    <button name="setup" x="292" y="282" w="213" h="81" target_name="Sys_Setup_Screen" enable_click="true" feedback="true" style:normal:bg_color="#f4f4f400" style:normal:border="none" function="open_window"/>
+    <button name="reset" x="540" y="281" w="215" h="81" target_name="confirmRestart" enable_click="true" feedback="true" style:normal:bg_color="#f4f4f400" style:normal:border="all" function="open_window" visible="true" style:normal:border_color="#c2c2c200"/>
+    <button name="exit" x="668" y="374" w="103" h="92" target_name="home_page" enable_click="true" feedback="true" style:normal:bg_color="#f4f4f400" style:normal:border="none" function="open_window"/>
+</window>
