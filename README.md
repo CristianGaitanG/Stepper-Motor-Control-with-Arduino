@@ -1,4 +1,4 @@
-# __Stepper Motor Control using Arduino and Stone Screen__
+__Stepper Motor Control using Arduino and Stone Screen__
 =============
 
 This application allows to control the rotation of a stepper motor as per indicated through the Stone screen. Application receives the distance to travel, and the app calculates the steps per revolution   
