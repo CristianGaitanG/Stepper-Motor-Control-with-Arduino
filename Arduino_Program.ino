@@ -21,22 +21,27 @@ int code_machine = 0;
 //Stepper Calculation
 double distCal = 1.0; //in m
 int numSteps = 0; //Calculate number steps for motor
-int pulseWidth = 40; //duration of the pulse
-int milSteps = 10; //Frequency of pulse
+int pulseWidth = 500; //duration of the pulse - 40
+int milSteps = 500; //Frequency of pulse - 10
 double pi = 3.14159;
 double rad = 0.5; //Radious of wheel
-int stepsByRev = 1600; //Steps by revolution
+int stepsByRev = 800; //Steps by revolution initially was 1600
 unsigned long startTime;
 unsigned long currentTime;
 unsigned long elapsedTime;
 unsigned long deltaTime = 30000;
+int totalSteps = 0;
 //Auto mode
+int countDist = 0;
+String distText[5];
 String desPos;
+double distNum;
+int autoSteps;
+
 char charBuf[50];
 //Manual mode
 double manualInc = 0.10; //Manual increment of 10cm each press
 int manualSteps = 0;
-int accumulateSteps = 0;
 
 void setup(){
   /*Defining Inputs*/
@@ -95,7 +100,7 @@ bool stepMotor_on(int steps){
     digitalWrite(pulse,HIGH);
     delayMicroseconds(pulseWidth);
     digitalWrite(pulse,LOW);
-    delay(milSteps);
+    delayMicroseconds(milSteps);
     Serial.println(n);
     n=n+1;
   }
@@ -114,11 +119,9 @@ void start_cal(){
   while(code_machine == 2){
     Serial.println("Motor running");
     stepMotor_on(numSteps);
+    totalSteps=totalSteps + numSteps;
     currentTime = millis();
     elapsedTime = currentTime - startTime;
-    //Serial.print("Elapsedtime: ");
-    //Serial.println(elapsedTime);
-    //if(digitalRead(inPosition)==HIGH and elapsedTime <= deltaTime){
     if(inPosition==true and elapsedTime <= deltaTime){
       close_win("dialog3");
       delay(500);
@@ -136,6 +139,7 @@ void start_cal(){
     }
   }
 }
+
 /*          */
 
 void loop() {
@@ -187,88 +191,129 @@ void loop() {
   }
 
   if (my_name == "moveL"){
-    digitalWrite(dir,LOW);
+    digitalWrite(dir,HIGH);
     manualSteps = stepsCalculator(manualInc);
     Serial.println(manualSteps);
-    accumulateSteps = accumulateSteps - manualSteps;
-    if (accumulateSteps < 0){
-      accumulateSteps = 0;
+    
+    totalSteps = totalSteps - manualSteps;
+    if (totalSteps < 0){
+      totalSteps = 0;
     }
-    stepMotor_on(accumulateSteps);
-    Serial.println(accumulateSteps);
+    stepMotor_on(manualSteps);
+    Serial.println(totalSteps);
     my_name="End";
   }
 
   if (my_name == "moveR"){
-    digitalWrite(dir,HIGH);
+    //MANUAL MODE
+    digitalWrite(dir,LOW);
     manualSteps = stepsCalculator(manualInc);
     Serial.println(manualSteps);
-    accumulateSteps = accumulateSteps + manualSteps;
-    if (accumulateSteps > 150000){   //ToDo: Check Max Length of Gauge
-      accumulateSteps = 150000;
+    totalSteps = totalSteps + manualSteps;
+    if (totalSteps > 150000){  //ToDo: Check Max Length of Gauge
+      totalSteps = 150000;
     }
-    stepMotor_on(accumulateSteps);
-    Serial.println(accumulateSteps);
+    //stepMotor_on(accumulateSteps);
+    stepMotor_on(manualSteps);
+    Serial.println(totalSteps);
+    my_name="End";
+  }
+
+  if(my_name == "btn1"){
+    distText[countDist] = "1";
+    countDist = countDist +1;
+    my_name="End";
+    delay(800);
+  }
+  if(my_name == "btn2"){
+    distText[countDist] = "2";
+    countDist = countDist+1;
+    my_name="End";
+    delay(800);
+  }
+  if(my_name == "btn3"){
+    distText[countDist] = "3";
+    countDist = countDist+1;
+    my_name="End";
+    delay(800);
+  }
+  if(my_name == "btn4"){
+    distText[countDist] = "4";
+    countDist = countDist+1;
+    delay(800);
+    my_name="End";
+  }
+  if(my_name == "btn5"){
+    distText[countDist] = "5";
+    countDist = countDist+1;
+    delay(800);
+    my_name="End";
+  }
+  if(my_name == "btn6"){
+    distText[countDist] = "6";
+    countDist = countDist+1;
+    delay(800);
+    my_name="End";
+  }
+  if(my_name == "btn7"){
+    distText[countDist] = "7";
+    countDist = countDist+1;
+    delay(800);
+    my_name="End";
+  }
+  if(my_name == "btn8"){
+    distText[countDist] = "8";
+    countDist = countDist+1;
+    delay(800);
+  }
+  if(my_name == "btn9"){
+    distText[countDist] = "9";
+    countDist = countDist+1;
+    delay(800);
+    my_name="End";
+  }
+  if(my_name == "btn0"){
+    distText[countDist] = "0";
+    countDist = countDist+1;
+    delay(800);
+    my_name="End";
+  }
+  if(my_name == "btndot"){
+    distText[countDist] = ".";
+    countDist = countDist+1;
+    delay(800);
+    my_name="End";
+  }
+
+  if(my_name =="button8"){
+    desPos = distText[0]+distText[1]+distText[2]+distText[3];
+    Serial.println(desPos); 
+    delay(500);
+    countDist = 0;
+    distNum = desPos.toDouble();
+    Serial.print("Numeric Value: ");
+    Serial.println(distNum);
+    autoSteps = stepsCalculator(distNum);
+    Serial.println(autoSteps);
+    autoSteps = totalSteps - autoSteps;
+    Serial.print("Auto move: ");
+    Serial.println(autoSteps);
     
-    my_name="End";
-  }
-  
-/*
-  if (my_name == "btn1"){
-    desPos=desPos+"1";
-    my_name="End";
-    //set_text("label", "desirePosAuto", "hello stone");
-  }
-  if (my_name == "btn2"){
-    desPos=desPos+"2";
-    my_name="End";
-    //set_text("label", "desirePosAuto", "hello stone");
-  }
-  if (my_name == "btn3"){
-    desPos=desPos+"3";
-    my_name="End";
-    //set_text("label", "desirePosAuto", "hello stone");
-  }
-  if (my_name == "btn4"){
-    desPos=desPos+"4";
-    my_name="End";
-    //set_text("label", "desirePosAuto", "hello stone");
-  }
-  if (my_name == "btn5"){
-    desPos=desPos+"5";
-    my_name="End";
-    //set_text("label", "desirePosAuto", "hello stone");
-  }
-  if (my_name == "btn6"){
-    desPos=desPos+"6";
-    my_name="End";
-    //set_text("label", "desirePosAuto", "hello stone");
-  }
-  if (my_name == "btn7"){
-    desPos=desPos+"7";
-    my_name="End";
-    //set_text("label", "desirePosAuto", "hello stone");
-  }
-  if (my_name == "btn8"){
-    desPos=desPos+"8";
-    my_name="End";
-    //set_text("label", "desirePosAuto", "hello stone");
-  }
-  if (my_name == "btn9"){
-    desPos=desPos+"9";
-    my_name="End";
-    //set_text("label", "desirePosAuto", "hello stone");
-  }
-  if (my_name == "btn0"){
-    desPos=desPos+"0";
-    my_name="End";
-    //set_text("label", "desirePosAuto", "hello stone");
-  }
-  if (my_name == "btndot"){
-    desPos=desPos+".";
-    my_name="End";
-  }
-  //Serial.println(desPos);
-  //desPos.toCharArray(charBuf,50);
-  //set_text("label", "desirePosAuto", charBuf);*/
+    if (autoSteps > 0){
+     digitalWrite(dir,HIGH);
+      stepMotor_on(abs(autoSteps)); 
+      my_name="End";
+      autoSteps = abs(autoSteps);
+      totalSteps = totalSteps-autoSteps;
+    }
+    if (autoSteps < 0){
+      digitalWrite(dir,LOW);
+      stepMotor_on(abs(autoSteps));
+      my_name="End";
+      autoSteps = abs(autoSteps);
+      totalSteps = totalSteps + autoSteps;
+    }
+    Serial.print("Auto move: ");
+    Serial.println(totalSteps);
+  }  
 }
